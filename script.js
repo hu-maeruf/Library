@@ -36,3 +36,24 @@ function addBookToLibrary() {
   const newBook = new Book(bookTitle, bookAuthor, bookPages, bookStatus);
   myLibrary.push(newBook);
 }
+
+const container = document.getElementById("library-display");
+
+function displayBooks() {
+  // When displayBook() run more than once you will get duplicate cards so to we will clear the container first
+  container.innerHTML = "";
+  for (const book of myLibrary) {
+    const card = document.createElement("div");
+
+    const title = document.createElement("p");
+    title.textContent = book.title;
+    const author = document.createElement("p");
+    author.textContent =  book.author;
+    const pageNumber = document.createElement("p");
+    pageNumber.textContent = book.pageNumber;
+
+    card.append(title, author, pageNumber);
+    container.appendChild(card);
+  }
+};
+displayBooks();
