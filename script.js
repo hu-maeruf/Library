@@ -11,6 +11,13 @@ function Book(title, author, pageNumber, bookStatus) {
   this.bookStatus = bookStatus;
 }
 
+const theBookofAssistance = new Book("The Book of Assistance", "Imam ‘Abdallah ibn ‘Alawi al-Haddad", 152, "not read");
+myLibrary.push(theBookofAssistance)
+const reclaimYourHeart = new Book("Reclaim Your Heart", "Yasmin Mogahed", 192, "not read");
+myLibrary.push(reclaimYourHeart)
+const theAlchemist = new Book("The Alchemist", "Paulo Coelho", 177, "not read");
+myLibrary.push(theAlchemist)
+
 const button = document.getElementById("button");
 
 button.addEventListener("click", addBookToLibrary)
