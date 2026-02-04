@@ -8,6 +8,23 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-	
+	<form action="#">
+		<label for="title">Title: </label>
+		<input type="text" name="title" id="title">
+
+		<label for="author">Author: </label>
+		<input type="text" name="author" id="author">
+
+		<label for="pageNumber">Page Number: </label>
+		<input type="number" name="pageNumber" id="pageNumber">
+
+		<legend>Read: </legend>
+		<input type="radio" name="bookStatus" id="bookStatus-yes" value="Yes">
+		<label for="bookStatus-yes">Yes</label>
+
+		<input type="radio" name="bookStatus" id="bookStatus-no" value="No">
+		<label for="bookStatus-no">No</label>  
+		<button type="button" id="button">Submit</button>
+	</form>
 </body>
 </html>
