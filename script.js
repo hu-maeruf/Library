@@ -39,6 +39,12 @@ function addBookToLibrary() {
     bookStatus = selectedRadio.value;
   }
   const newBook = new Book(bookTitle, bookAuthor, bookPages, bookStatus);
+
+  if (!bookTitle || !bookAuthor || !bookPages) {
+    alert("Fill the fields first!");
+    return;
+  }
+  
   myLibrary.push(newBook);
   displayBooks();
   const form = document.getElementById("formId");
