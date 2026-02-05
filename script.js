@@ -38,19 +38,19 @@ function addBookToLibrary() {
 }
 
 const container = document.getElementById("library-display");
-
 function displayBooks() {
   // When displayBook() run more than once you will get duplicate cards so to we will clear the container first
   container.innerHTML = "";
   for (const book of myLibrary) {
     const card = document.createElement("div");
+    card.className = "card";
 
-    const title = document.createElement("p");
+    const title = document.createElement("h1");
     title.textContent = book.title;
     const author = document.createElement("p");
-    author.textContent =  book.author;
+    author.textContent = "Author Name: " + book.author;
     const pageNumber = document.createElement("p");
-    pageNumber.textContent = book.pageNumber;
+    pageNumber.textContent = "Page Number: " + book.pageNumber;
 
     card.append(title, author, pageNumber);
     container.appendChild(card);
