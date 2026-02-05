@@ -60,8 +60,10 @@ function displayBooks() {
     author.textContent = "Author Name: " + book.author;
     const pageNumber = document.createElement("p");
     pageNumber.textContent = "Page Number: " + book.pageNumber;
+    const readStatus = document.createElement("p");
+    readStatus.textContent = book.bookStatus;
 
-    card.append(title, author, pageNumber);
+    card.append(title, author, pageNumber, readStatus);
     container.appendChild(card);
   }
 };
