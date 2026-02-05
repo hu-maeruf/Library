@@ -18,9 +18,14 @@ myLibrary.push(reclaimYourHeart)
 const theAlchemist = new Book("The Alchemist", "Paulo Coelho", 177, "not read");
 myLibrary.push(theAlchemist)
 
-const button = document.getElementById("button");
+const addBook = document.getElementById("showDialog");
+const confrimButton = document.getElementById("confirmBtn");
+const dialog = document.getElementById("dialog-box");
 
-button.addEventListener("click", addBookToLibrary)
+addBook.addEventListener("click", () => {
+  dialog.showModal();
+})
+confrimButton.addEventListener("click", addBookToLibrary);
 
 function addBookToLibrary() {
   const bookTitle = document.getElementById("title").value;
@@ -35,6 +40,10 @@ function addBookToLibrary() {
   }
   const newBook = new Book(bookTitle, bookAuthor, bookPages, bookStatus);
   myLibrary.push(newBook);
+  displayBooks();
+  const form = document.getElementById("formId");
+  form.reset();
+  dialog.close();
 }
 
 const container = document.getElementById("library-display");
