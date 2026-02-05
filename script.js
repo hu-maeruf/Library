@@ -1,4 +1,4 @@
-const myLibrary = [];
+let myLibrary = [];
 
 function Book(title, author, pageNumber, bookStatus) {
   if (!new.target) {
@@ -52,6 +52,8 @@ function displayBooks() {
   container.innerHTML = "";
   for (const book of myLibrary) {
     const card = document.createElement("div");
+    const uniqueId = book.id;
+    console.log(uniqueId);
     card.className = "card";
 
     const title = document.createElement("h1");
@@ -62,8 +64,16 @@ function displayBooks() {
     pageNumber.textContent = "Page Number: " + book.pageNumber;
     const readStatus = document.createElement("p");
     readStatus.textContent = book.bookStatus;
+    const removeBook = document.createElement("button");
+    removeBook.className = "remove";
+    removeBook.textContent = "Remove Book";
 
-    card.append(title, author, pageNumber, readStatus);
+    removeBook.addEventListener("click", () => {
+      myLibrary = myLibrary.filter((book) => book.id !== uniqueId);
+      displayBooks();
+    });
+
+    card.append(title, author, pageNumber, readStatus, removeBook);
     container.appendChild(card);
   }
 };
