@@ -77,3 +77,8 @@ button {
   border: none;
   cursor: pointer;
 }
+.remove {
+  background-color:rgb(219, 177, 121);
+  width: 70%;
+  align-self: center;
+}
