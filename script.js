@@ -11,11 +11,11 @@ function Book(title, author, pageNumber, bookStatus) {
   this.bookStatus = bookStatus;
 }
 
-const theBookofAssistance = new Book("The Book of Assistance", "Imam ‘Abdallah ibn ‘Alawi al-Haddad", 152, "not read");
+const theBookofAssistance = new Book("The Book of Assistance", "Imam ‘Abdallah ibn ‘Alawi al-Haddad", 152, "Not read");
 myLibrary.push(theBookofAssistance)
-const reclaimYourHeart = new Book("Reclaim Your Heart", "Yasmin Mogahed", 192, "not read");
+const reclaimYourHeart = new Book("Reclaim Your Heart", "Yasmin Mogahed", 192, "Not read");
 myLibrary.push(reclaimYourHeart)
-const theAlchemist = new Book("The Alchemist", "Paulo Coelho", 177, "not read");
+const theAlchemist = new Book("The Alchemist", "Paulo Coelho", 177, "Not read");
 myLibrary.push(theAlchemist)
 
 const addBook = document.getElementById("showDialog");
@@ -53,7 +53,6 @@ function displayBooks() {
   for (const book of myLibrary) {
     const card = document.createElement("div");
     const uniqueId = book.id;
-    console.log(uniqueId);
     card.className = "card";
 
     const title = document.createElement("h1");
@@ -62,18 +61,31 @@ function displayBooks() {
     author.textContent = "Author Name: " + book.author;
     const pageNumber = document.createElement("p");
     pageNumber.textContent = "Page Number: " + book.pageNumber;
-    const readStatus = document.createElement("p");
-    readStatus.textContent = book.bookStatus;
     const removeBook = document.createElement("button");
     removeBook.className = "remove";
     removeBook.textContent = "Remove Book";
+    const readStatus = document.createElement("button");
+    readStatus.className = "remove";
+    readStatus.textContent = "Status";
+    const statusText = document.createElement("p");
+    statusText.textContent = book.bookStatus;
+
+    readStatus.addEventListener("click", () => {
+      if(statusText.textContent === "Read") {
+        statusText.textContent = "Not read";
+      } else if (statusText.textContent === "Not read") {
+        statusText.textContent = "Read";
+      } else {
+        statusText.textContent = "Read";
+      }
+    });
 
     removeBook.addEventListener("click", () => {
       myLibrary = myLibrary.filter((book) => book.id !== uniqueId);
       displayBooks();
     });
 
-    card.append(title, author, pageNumber, readStatus, removeBook);
+    card.append(title, author, pageNumber, statusText, readStatus, removeBook);
     container.appendChild(card);
   }
 };
