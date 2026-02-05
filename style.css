@@ -2,7 +2,7 @@ body {
   background-image: url("background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  overflow-x: hidden;
+  padding-top: 1em;
 }
 * {
   margin: 0;
@@ -28,4 +28,35 @@ body {
 .img {
   width: 200px;
   height: 70%;
+}
+#dialog-box {
+  margin: 10rem 10rem 10rem 30rem;
+  border: none;
+  border-radius: 5px;
+}
+#formId {
+  padding: 2em 4em;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 1rem;
+}
+label:not(.radioChose) {
+  display: block;
+}
+label, legend {
+  padding: 10px 10px 10px 0px;
+}
+#formId > div > button:first-child {
+  margin-right: 10px ;
+}
+input {
+  padding: 3px;
+  padding-left: 10px;
+  font-size: 0.8rem;
+  border: 1px solid grey;
+  border-radius: 15px;
+}
+input:focus {
+  outline: none;
 }
