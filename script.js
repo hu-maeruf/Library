@@ -1,14 +1,19 @@
 let myLibrary = [];
 
-function Book(title, author, pageNumber, bookStatus) {
-  if (!new.target) {
-    throw Error("You must use the 'new' operator to call the constructor");
+class Book {
+
+  #id = crypto.randomUUID();
+  
+  constructor(title, author, pageNumber, bookStatus) {
+    this.title = title;
+    this.author = author;
+    this.pageNumber = pageNumber;
+    this.bookStatus = bookStatus;
   }
-  this.id = crypto.randomUUID();
-  this.title = title;
-  this.author = author;
-  this.pageNumber = pageNumber;
-  this.bookStatus = bookStatus;
+  
+  get id() {
+    return this.#id;
+  }
 }
 
 const theBookofAssistance = new Book("The Book of Assistance", "Imam ‘Abdallah ibn ‘Alawi al-Haddad", 152, "Not read");
